@@ -4,7 +4,6 @@
 #include<cstdio>
 using namespace std;
 #define ll long long
-#define ERR puts("=======here========");
 #define prt(k) cout<<#k"="<<k<<" "
 #include<algorithm>
 const int N=200555;
