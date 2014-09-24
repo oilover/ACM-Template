@@ -1,11 +1,4 @@
-#include<iostream>
-#include<cstring>
-#include<cstdio>
-#include<queue>
-using namespace std;
-#define ll long long
-#define prt(k) cout<<#k"="<<k<<" ";
-#define inf 0x3f3f3f3f
+
 const int N=1000022;
 #define rank Rank
 int sa[N],rank[N],rank2[N],h[N],*y,*x,c[N];
@@ -59,63 +52,40 @@ void get_h(char* s,int n)
         h[rank[i]]=k;
     }
 }
-int n,m;
-int len;
-bool judge(int L)
-{
-    int len=0,cnt=1;
-    for(int i=1;i<=n;i++)
-    {
-        if(h[i]>=L) cnt++;
-        else  len=max(len,cnt),cnt=1;
+int dp[maxn][20],Log[maxn];  
+  
+void RMQ_init(int n)  
+{  
+    for(int i=0;i<n;i++) dp[i][0]=h[i];  
+    for(int i=1;(1<<i)<=n;i++)  
+    {  
+        for(int j=0;j+(1<<i)-1<n;j++)  
+        {  
+            dp[j][i]=min(dp[j][i-1],dp[j+(1<<(i-1))][i-1]);  
+        }  
+    }  
+}  
+  
+int LCP(int l,int r,int n)  
+{  
+    if(l==r) return n-sa[l];  
+    l++;  
+    if(l>r) swap(l,r);  
+    int k = 0;  
+    while(1<<(k+1) <= r-l+1) k++;  
+    return min(dp[l][k],dp[r-(1<<k)+1][k]);  
+}  
+  
+int main()  
+{  
+    int cas=1;  
+    while(scanf("%s",str)!=EOF&&str[0]!='#')  
+    {  
+        int n=strlen(str);  
+  
+        get_sa(str,n);  
+        get_h(str,n);  
+        RMQ_init(n);  
     }
-    return(len>=m)  ;
-}
-int gao(int L)
-{
-    int ret=-1,cnt=1,tt=sa[0];
-    for(int i=1;i<=n;i++)
-    {
-        if(h[i]>=L)
-        {
-            cnt++;
-            tt=max(sa[i],tt);
-        }
-        else
-        {
-            if(cnt>=m)   ret=max(ret,tt);
-            cnt=1;tt=sa[i];
-        }
-    }
-    return ret;
-}
-void init()
-{
-    memset(sa,0,sizeof(sa));
-    memset(rank,0,sizeof(rank));
-    memset(rank2,0,sizeof(rank2));
-    memset(h,0,sizeof(h));
-    memset(c,0,sizeof(c));
-}
-int main()
-{
-    int re; //scanf("%d",&re);
-    while(scanf("%d",&m)==1,m)
-    {
-        init();
-        scanf("%s",str);
-        n=strlen(str);
-        get_sa(str,n);
-        get_h(str,n);
-       // for(int i=1;i<=n;i++) printf("%4d",h[i]); putchar(10);
-        int l=1,r=n;  int ans=-1;
-        while(l<=r)
-        {
-            int mid=(l+r)/2;
-            if(judge(mid)) ans=mid,l=mid+1;
-            else r=mid-1;
-        }
-        if(ans==-1) { puts("none"); continue; }
-        printf("%d %d\n",ans,m==1?0:gao(ans));
-    }
+    return 0;
 }
