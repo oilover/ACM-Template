@@ -28,7 +28,7 @@ void addedge(int u, int v)
 }
 int siz[N], dep[N], fa[N], top[N], son[N], p[N];
 /// fa 父节点 dep 深度 num 孩子数 son 重儿子
-/// top[u] 它所在重链顶点 p[u]在数据结构中位置 rp p的反
+/// top[u] 它所在重链顶点 p[u]他与父亲连边在数据结构中位置 rp p的反
 int n;
 
 void dfs1(int u, int pre, int d)
