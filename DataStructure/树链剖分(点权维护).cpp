@@ -26,7 +26,7 @@ void init_edge()
     tot = 0;
 }
 /// fa 父节点 dep 深度 num 孩子数 son 重儿子
-/// top[u] 它所在重链顶点 p[u]在数据结构中位置 rp p的反
+/// top[u] 它所在重链顶端节点 p[u]在数据结构中位置 rp p的反
 int fa[N], dep[N], top[N], num[N];
 int son[N], p[N];
 int pos;
