@@ -25,8 +25,10 @@ void init_edge()
     memset(head, -1, sizeof head);
     tot = 0;
 }
+/// fa 父节点 dep 深度 num 孩子数 son 重儿子
+/// top[u] 它所在重链顶点 p[u]在数据结构中位置 rp p的反
 int fa[N], dep[N], top[N], num[N];
-int son[N];
+int son[N], p[N];
 int pos;
 void init()
 {
@@ -49,7 +51,7 @@ void dfs(int u, int pre=-1, int d=0)
             son[u] = v;
     }
 }
-int p[N];
+
 void getpos(int u, int to=1)
 {
     top[u] = to;
