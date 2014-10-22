@@ -1,21 +1,18 @@
 ///Lucas(n, m, p)=c[n%p][m%p]*lucas(n/p, m/p, p);  组合数取模 p<10^5
-LL fact[100100];  
-void get_fact(LL p)  
+ll fact[100100];  
+void get_fact(ll p)  
 {  
-    fact[0]=1LL;  
+    fact[0]=1ll;  
     for(int i=1;i<=p+10;i++)  
         fact[i]=(fact[i-1]*i)%p;  
-}  
-LL Lucas(LL n,LL m,LL p)  
+}   
+ll C(ll n,ll m,ll fac[],ll mod)  
 {  
-    ///lucas(n,m,p)=c[n%p][m%p]*lucas(n/p,m/p,p);  
-    LL ret=1LL;  
-    while(n&&m)  
-    {  
-        LL a=n%p,b=m%p;  
-        if(a<b) return 0;  
-        ret=(ret * fact[a] * PowMod((fact[b]*fact[a-b])%p, p-2, p))%p;  
-        n/=p; m/=p;  
-    }  
-    return ret%p;  
+    if(n<m) return 0;  
+    return fac[n] * inv(fac[n-m]*fac[m], mod)%mod;  
 }  
+ll Lucas(ll n,ll m,ll fac[],ll mod)  
+{  
+    if(m==0) return 1;  ll p=mod;  
+    return C(n%p,m%p,fac,mod) * Lucas(n/p,m/p,fac,mod);  
+} 
