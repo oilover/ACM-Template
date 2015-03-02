@@ -16,8 +16,8 @@ void add(int u, int v)
     head[u] = mm++;
 }
 int sz[N], dep[N];
-int f[N][22];
-void dfs(int u, int fa)
+int f[N][22]; /// f[i][j] 表示 i 的第 2^j 个祖先
+void dfs(int u, int fa) /// 点从 1 开始标号
 {
     dep[u] = dep[fa] + 1;
     f[u][0] = fa;
@@ -58,4 +58,19 @@ int LCA(int x, int y)
             x = f[x][i], y = f[y][i];
     }
     return f[x][0];
+}
+int main()
+{
+    dep[0] = 0;
+    cin >> n ;
+    mm = 0;
+    memset(head, -1, sizeof head);
+    for (int i=1;i<n;i++)
+    {
+        int u, v;
+        scanf("%d%d", &u, &v);
+        add(u, v);  add(v, u);
+    }
+    dfs(1, 0);
+    gao();
 }
