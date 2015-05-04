@@ -1,10 +1,10 @@
-int scc,dfn[2*N],low[2*N],curr;  
+int scc,dfn[2*N],low[2*N],cur;  
 #include<stack>  
 stack<int> s;  
 int ins[N];  
 void dfs(int u)  
 {  
-    dfn[u]=low[u]=++curr;  
+    dfn[u]=low[u]=++cur;  
     s.push(u);  
     ins[u]=1;  
     for(int i=0;i<g[u].size();i++)  
