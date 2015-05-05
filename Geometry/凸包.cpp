@@ -36,12 +36,15 @@ bool In(vector<P> p, P b)  /// 是否在凸包边界或者内部
 	}
 	return true;
 }
+bool on(P p, P s, P t)  ///判断点是否在线段上（包括端点）
+{
+    return cmp(dis(p, s) + dis(p, t) - dis(s, t)) == 0;
+}
 bool On(vector<P> p, P b)  /// 是否在凸包边界上
 {
 	int n = p.size();
 	for (int i=0;i<n;i++) {
-		int x = cmp(det(p[i] - b, p[(i+1)%n] - b) );
-		if (x==0) return true;
+		if (on(b, p[i] , p[(i+1)%n] ) ) return true;
 	}
 	return false;
 }
