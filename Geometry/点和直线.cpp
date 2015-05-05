@@ -117,7 +117,7 @@ bool cz(point a, point b, point c, point d)   ///判断两条直线垂直
 {
     return cmp(dot(b-a, d-c))==0;
 }
-void move_d(point a, point b, double len)   ///直线沿着法向量平移len
+void move_d(point &a, point &b, double len)   ///直线沿着法向量平移len
 {
     point d = b - a;
     d = d / d.len();
