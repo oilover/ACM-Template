@@ -23,3 +23,25 @@ vector<Point> CovexHull(vector<Point>& p)
   ch.resize(m);
   return ch;
 }
+bool In(vector<P> p, P b)  /// 是否在凸包边界或者内部
+{
+	int n = p.size();
+	int sign = 0;
+	for (int i=0;i<n;i++) {
+		int x = cmp(det(p[i] - b, p[(i+1)%n] - b) );
+		if (x) {
+			if (sign==0) sign = x;
+			else if (sign - x)  return false;
+		}
+	}
+	return true;
+}
+bool On(vector<P> p, P b)  /// 是否在凸包边界上
+{
+	int n = p.size();
+	for (int i=0;i<n;i++) {
+		int x = cmp(det(p[i] - b, p[(i+1)%n] - b) );
+		if (x==0) return true;
+	}
+	return false;
+}
