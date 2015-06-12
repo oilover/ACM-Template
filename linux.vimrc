@@ -7,6 +7,6 @@ map <C-A> ggVG"+y
 map <F9> : call Run()<CR>
 func! Run()
 	exec "w"  
-  exec "!g++ -Wall % -o %<"  
-  exec "!./%<" 
+  	exec "!g++ -Wall % -o %<"  
+	 exec "!./%<" 
 endfunc
