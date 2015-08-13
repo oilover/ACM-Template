@@ -18,19 +18,19 @@ void insert(char s[],int id)
     end[u]=1;  
     node[id]=u;  
 }  
-void AC_build()  
-{  
-    queue<int> q;  
-    for(int i=0;i<26;i++)  
-    {  
-        int &v=ch[0][i];  
-        if(~v) { q.push(v); fail[v] = 0; }
-    }  
-    while(!q.empty())  
-    {  
-        int u=q.front(); q.pop();  
-        for(int i=0;i<26;i++)  
-        {  
+void AC_build()
+{
+    queue<int> q;
+    for (int i=0;i<26;i++) {
+        int &v = ch[0][i];
+        if (v != -1) {
+            q.push(v);
+            fail[v] = 0;
+        } else v = 0;
+    }
+    while (!q.empty()) {
+        int u = q.front(); q.pop();
+        for (int i=0;i<26;i++) {
             int &v = ch[u][i];
             if (v==-1) {
                 v = ch[fail[u]][i];
@@ -38,9 +38,9 @@ void AC_build()
                 fail[v] = ch[fail[u]][i];
                 q.push(v);
             }
-        }  
-    }  
-}  
+        }
+    }
+}
 int tmp[M];  
 int query(int buf[],int len)  
 {  
