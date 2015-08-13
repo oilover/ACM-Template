@@ -33,8 +33,7 @@ void AC_build()
         for(int i=0;i<26;i++)  
         {  
             int& tmp=ch[u][i];  
-            if(tmp==-1) tmp=ch[fail[u]][i];  
-            else { fail[tmp]=ch[fail[u]][i]; q.push(tmp); }  
+            if(tmp != -1) { fail[tmp]=ch[fail[u]][i]; q.push(tmp); }  
         }  
     }  
 }  
