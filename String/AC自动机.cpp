@@ -41,7 +41,7 @@ void AC_build()
 int tmp[M];  
 int query(int buf[],int len)  
 {  
-    for(int i=0;i<L;i++) tmp[i]=end[i];  
+    for(int i=0;i<Size;i++) tmp[i]=end[i];  
     int res=0,u=root;  
     for(int i=0;i<len;i++)  
     {  
