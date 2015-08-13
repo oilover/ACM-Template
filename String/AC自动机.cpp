@@ -23,17 +23,21 @@ void AC_build()
     queue<int> q;  
     for(int i=0;i<26;i++)  
     {  
-        int& tmp=ch[root][i];  
-        if(tmp==-1) tmp=root;  
-        else { fail[tmp]=root; q.push(tmp); }  
+        int &v=ch[0][i];  
+        if(~v) { q.push(v); fail[v] = 0; }
     }  
     while(!q.empty())  
     {  
         int u=q.front(); q.pop();  
         for(int i=0;i<26;i++)  
         {  
-            int& tmp=ch[u][i];  
-            if(tmp != -1) { fail[tmp]=ch[fail[u]][i]; q.push(tmp); }  
+            int &v = ch[u][i];
+            if (v==-1) {
+                v = ch[fail[u]][i];
+            } else {
+                fail[v] = ch[fail[u]][i];
+                q.push(v);
+            }
         }  
     }  
 }  
