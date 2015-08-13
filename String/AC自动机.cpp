@@ -49,7 +49,7 @@ int query(int buf[],int len)
         for(int v=u;v!=root;v=fail[v])  
         {  
             res+=tmp[v];  
-            tmp[v]=0;  
+            tmp[v]=0;  /// 加上这句话，aaba中a出现了1次，不加就是出现了3次
         }  
     }  
     return res;  
