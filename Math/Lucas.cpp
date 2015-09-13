@@ -1,10 +1,10 @@
 ///Lucas(n, m, p)=c[n%p][m%p]*lucas(n/p, m/p, p);  组合数取模 p<10^5
-ll fact[100100];  
-void get_fact(ll p)  
+ll fac[100100];  
+void get_fac(ll p)  
 {  
-    fact[0]=1ll;  
+    fac[0]=1;  
     for(int i=1;i<=p+10;i++)  
-        fact[i]=(fact[i-1]*i)%p;  
+        fac[i]=(fac[i-1]*i)%p;  
 }   
 ll C(ll n,ll m,ll fac[],ll mod)  
 {  
