@@ -1,3 +1,4 @@
+typedef long long LL;
 ///Lucas(n, m, p)=c[n%p][m%p]*lucas(n/p, m/p, p);  组合数取模 p<10^5
 ll fac[1021100];
 ll mul(ll a, ll n, ll m)
@@ -31,4 +32,24 @@ ll Lucas(ll n,ll m,ll mod)
 {
     if(m==0) return 1;  ll p=mod;
     return mul(C(n%p, m%p, mod) , Lucas(n/p,m/p,mod) , mod) % mod;
+}
+LL C(LL n, LL m, LL p) {  // 另一种计算组合数方法
+	if(n < m) {
+		return 0;
+	}
+	m = min(m, n - m);
+	LL ret = 1;
+	for(LL i = 1, j = n; i <= m; i++, j--) {
+		ret = ((ret * j) % p * inv(i, p)) % p;
+	}
+	return ret;
+}
+LL solve(LL n, LL m, LL p) {
+	LL ret = 1;
+	while(m > 0) {
+		ret = ret * C(n % p, m % p, p) % p;
+		n /= p;
+		m /= p;
+	}
+	return ret;
 }
