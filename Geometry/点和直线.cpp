@@ -88,7 +88,7 @@ return min(dis(p,s), dis(p,t);
 
 P cuizhu(P p, P s, P t) ///点到直线垂足
 {
-    double r = dot(t-s, p-s)/dis(s, t);
+    double r = dot(t-s, p-s)/dot(t-s, t-s); 
     return s + (t-s)*r;
 }
 bool intersect(const P &a, const P &b, const P &c, const P &d, P &res)  ///求直线交点，如果返回false表示平行
