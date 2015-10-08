@@ -62,8 +62,6 @@ Circle inv(Circle a)
     double d2 = (r1 * r2 + r * r) / d1;
     double x = a.x / d1 * d2;
     double y = a.y / d1 * d2;
-    P p = a * (r2 / r1);
-    p.r = r2;
     return P(x, y, r2);
 }
 Circle inv(P s, P t) /// 直线的反演，直线不经过反演中心
