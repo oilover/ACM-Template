@@ -37,4 +37,4 @@ ll mul(ll a, ll n, ll m)
     return r;
 }
 DP可以正推和倒推，有时候一种不行可以换另一种（有可能有很多组数据）。
-注意编译开C++ 11和-Wall
+注意编译开C++ 11和-Wall（防止函数没有return）
