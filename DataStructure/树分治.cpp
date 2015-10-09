@@ -10,7 +10,7 @@
 using namespace std;
 #define prt(k) cerr<<#k" = "<<k<<endl
 typedef long long LL;
-/// 树分治， POJ 1741 求距离不超过 K 的顶点对数
+/// 树分治， POJ 1741 求距离不超过 K 的顶点对数  (a,b)和(b,a)是相同的
 /// 见《挑战程序设计竞赛》363页
 const int INF = 0x3f3f3f3f;
 const int MAXN = 100005;
