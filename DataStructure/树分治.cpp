@@ -9,18 +9,18 @@
 #include <cmath>
 using namespace std;
 #define prt(k) cerr<<#k" = "<<k<<endl
-//typedef long long LL;
+typedef long long LL;
 /// 树分治， POJ 1741 求距离不超过 K 的顶点对数
 /// 见《挑战程序设计竞赛》363页
 const int INF = 0x3f3f3f3f;
-const int MAXN = 10005;
+const int MAXN = 100005;
 typedef pair<int, int> P;
-struct edge { int to; int length; };
-int n; int  K;
+struct edge { int to; LL length; };
+int n; LL  K;
 vector<edge> G[MAXN];
 bool centroid[MAXN];
 int subtree_size[MAXN];
-int ans;
+LL ans;
 int compute_subtree_size(int u, int p)
 {
     int c = 1;
@@ -55,12 +55,12 @@ void enumerate_paths(int v, int p, int d, vector<int> &ds)
         enumerate_paths(w, v, d + G[v][i].length, ds);
     }
 }
-int count_pairs(vector<int> &ds)
+LL count_pairs(vector<int> &ds)
 {
-    int res = 0;
+    LL res = 0;
     sort(ds.begin(), ds.end());
     int j = ds.size();
-    for (int i=0;i<ds.size();i++) {
+    for (int i=0;i<(int)ds.size();i++) {
         while (j > 0 && ds[i] + ds[j-1] > K) j--;
         res += j - (j > i ? 1 : 0);
     }
@@ -94,15 +94,15 @@ void solve()
     ans = 0;
     for (int i=1;i<=n;i++) centroid[i] = false;
     solve_subproblem(1);
-    printf("%d\n", ans);
+    printf("%I64d\n", ans);
 }
 int main()
 {
-    while (scanf("%d%d", &n, &K) == 2 && n) {
+    while (scanf("%d%I64d", &n, &K) == 2 && n) {
         for (int i=1;i<=n;i++) G[i].clear();
         for (int i=1;i<n;i++) {
-            int u,v ; int w;
-            scanf("%d%d%d", &u, &v, &w);
+            int u,v ; LL w;
+            scanf("%d%d%I64d", &u, &v, &w);
             G[u].push_back((edge){v, w});
             G[v].push_back((edge){u, w});
         }
