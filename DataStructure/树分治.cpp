@@ -10,11 +10,12 @@
 using namespace std;
 #define prt(k) cerr<<#k" = "<<k<<endl
 typedef long long LL;
-/// 树分治， POJ 1741 求距离不超过 K 的顶点对数  (a,b)和(b,a)是相同的
+/// 树分治， POJ 1741 求距离不超过 K 的顶点对数
 /// 见《挑战程序设计竞赛》363页
 const int INF = 0x3f3f3f3f;
 const int MAXN = 100005;
 typedef pair<int, int> P;
+typedef vector<LL> VI;
 struct edge { int to; LL length; };
 int n; LL  K;
 vector<edge> G[MAXN];
@@ -46,7 +47,7 @@ P search_centroid(int v, int p, int t)
     res = min(res, P(m, v));
     return res;
 }
-void enumerate_paths(int v, int p, int d, vector<int> &ds)
+void enumerate_paths(int v, int p, int d, VI &ds)
 {
     ds.push_back(d);
     for (int i=0;i<G[v].size();i++) {
@@ -55,7 +56,7 @@ void enumerate_paths(int v, int p, int d, vector<int> &ds)
         enumerate_paths(w, v, d + G[v][i].length, ds);
     }
 }
-LL count_pairs(vector<int> &ds)
+LL count_pairs(VI &ds)
 {
     LL res = 0;
     sort(ds.begin(), ds.end());
@@ -76,12 +77,12 @@ void solve_subproblem(int v)
         if (centroid[w]) continue;
         solve_subproblem(w);
     }
-    vector<int> ds;
+    VI ds;
     ds.push_back(0);
     for (int i=0;i<G[s].size();i++) {
         int w = G[s][i].to;
         if (centroid[w]) continue;
-        vector<int> tds;
+        VI tds;
         enumerate_paths(w, s, G[s][i].length, tds);
         ans -= count_pairs(tds);
         ds.insert(ds.end(), tds.begin(), tds.end());
