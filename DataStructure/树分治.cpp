@@ -95,15 +95,15 @@ void solve()
     ans = 0;
     for (int i=1;i<=n;i++) centroid[i] = false;
     solve_subproblem(1);
-    printf("%I64d\n", ans);
+    printf("%lld\n", ans);
 }
 int main()
 {
-    while (scanf("%d%I64d", &n, &K) == 2 && n) {
+    while (scanf("%d%lld", &n, &K) == 2 && n) {
         for (int i=1;i<=n;i++) G[i].clear();
         for (int i=1;i<n;i++) {
             int u,v ; LL w;
-            scanf("%d%d%I64d", &u, &v, &w);
+            scanf("%d%d%lld", &u, &v, &w);
             G[u].push_back((edge){v, w});
             G[v].push_back((edge){u, w});
         }
