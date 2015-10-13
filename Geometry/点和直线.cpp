@@ -1,3 +1,8 @@
+#include <bits/stdc++.h>
+using namespace std;
+#define prt(k) cerr<<#k" = "<<k<<endl
+typedef long long LL;
+const int inf = 0x3f3f3f3f;
 const double eps = 1e-8;
 const double PI = acos(-1);
 struct P
@@ -7,6 +12,10 @@ struct P
     P rotate(double A)  ///把点绕原点逆时针旋转弧度A
     {
         return P(x * cos(A) - y * sin(A), x * sin(A) + y * cos(A));
+    }
+    P operator + (P b)
+    {
+        return P(x+b.x, y+b.y);
     }
     double len()
     {
@@ -81,17 +90,17 @@ double dis(P p, P s, P t)   ///点到直线的距离
 }
 double disToSeg(P p, P s, P t)   ///点到线段的距离
 {
-If (dot(p-s,t-s)>0 && dot(p-t, s-t)>0) 
-    return fabs(det(s-p, t-p))/dis(s,t);
-return min(dis(p,s), dis(p,t);
+    if (dot(p-s,t-s)>0 && dot(p-t, s-t)>0)
+        return fabs(det(s-p, t-p))/dis(s,t);
+    return min(dis(p,s), dis(p,t));
 }
 
 P cuizhu(P p, P s, P t) ///点到直线垂足
 {
-    double r = dot(t-s, p-s)/dot(t-s, t-s); 
+    double r = dot(t-s, p-s)/dot(t-s, t-s);
     return s + (t-s)*r;
 }
-bool intersect(const P &a, const P &b, const P &c, const P &d, P &res)  ///求直线交点，如果返回false表示平行
+bool jiao(const P &a, const P &b, const P &c, const P &d, P &res)  ///求直线交点，如果返回false表示平行
 {
     double k1 = det(b-a, c-a), k2 = det(b-a, d-a);
     if(zero(k1 - k2)) return false;
@@ -117,6 +126,6 @@ void move_d(P &a, P &b, double len)   ///直线沿着法向量平移len
     P d = b - a;
     d = d / d.len();
     d = d.rotate(PI/2);
-    d *= len;
-    a += d, b += d;
+    d = d * len;
+    a = a + d, b = b + d;
 }
