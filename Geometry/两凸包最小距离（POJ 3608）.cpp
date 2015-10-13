@@ -1,3 +1,4 @@
+//需要特判凸包相交
 #include<cstdio>
 #include<cstring>
 #include<algorithm>
