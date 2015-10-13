@@ -132,5 +132,6 @@ vector<P> HPI(Line line[], int n) /// 半平面交
         res.push_back(Q[i]&Q[i+1]);
     if(head < tail - 1)
         res.push_back(Q[head]&Q[tail]);
+    return res;
 }
 /************半平面交结束*******************/
