@@ -1,7 +1,4 @@
-#include <bits/stdc++.h>
-using namespace std;
-#define prt(k) cerr<<#k" = "<<k<<endl
-typedef unsigned long long ll;
+求圆最多嵌套层数，圆没有相交
 const int N = 50003;
 struct P
 {
