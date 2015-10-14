@@ -27,7 +27,26 @@ struct P
         return x*b.x + y*b.y;
     }
 };
-
+struct Line
+{
+    P s,e;
+    double k;
+    Line() {}
+    Line(P _s,P _e)
+    {
+        s = _s;
+        e = _e;
+        k = atan2(e.y - s.y,e.x - s.x);
+    }
+    P operator &(const Line &b)const //直线的交点
+    {
+        P res = s;
+        double t = ((s - b.s)^(b.s - b.e))/((s - e)^(b.s - b.e));
+        res.x += (e.x - s.x)*t;
+        res.y += (e.y - s.y)*t;
+        return res;
+    }
+};
 int cmp(double x) { return x<-eps?-1:x>eps; }
 bool zero(double x) { return cmp(x)==0; }
 
