@@ -1,3 +1,4 @@
+Linux 64位gcc 4.8.1环境
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
