@@ -1,15 +1,3 @@
-int cmp(double x)
-{
-    return x<-eps?-1:x>eps;
-}
-bool zero(double x)
-{
-    return cmp(x)==0;
-}
-bool eq(double a, double b)
-{
-    return zero(a-b);
-}
 struct P
 {
     double x, y;
@@ -25,10 +13,6 @@ struct P
     {
         return x*b.x + y*b.y;
     }
-    void out()
-    {
-        printf("%.16f %.16f\n", x, y);
-    }
     P rotate(double A)  ///把点绕原点逆时针旋转弧度A
     {
         return P(x * cos(A) - y * sin(A), x * sin(A) + y * cos(A));
@@ -37,37 +21,12 @@ struct P
     {
         return P(x+b.x, y+b.y);
     }
-    bool operator == (P b) const
-    {
-        return eq(x,b.x) && eq(y, b.y);
-    }
-    void operator += (P b)
-    {
-        x += b.x, y += b.y;
-    }
     bool operator < (P b) const
     {
         return x < b.x || (x == b.x && y < b.y);
     }
-    double len()
-    {
-        return sqrt(x*x+y*y);
-    }
 };
 
-
-P operator-(P a, P  b)
-{
-    return P(a.x-b.x, a.y-b.y);
-}
-P operator*(P a, double k)
-{
-    return P(a.x*k, a.y*k);
-}
-P operator / (P a, double k)
-{
-    return P(a.x/k, a.y/k);
-}
 struct Line
 {
     P s,e;
