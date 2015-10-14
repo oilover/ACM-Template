@@ -13,23 +13,25 @@ struct P
     {
         return P(x * cos(A) - y * sin(A), x * sin(A) + y * cos(A));
     }
-    P operator + (P b)
-    {
-        return P(x+b.x, y+b.y);
-    }
+    P operator + (P b) {  return P(x+b.x, y+b.y);  }
     double len()
     {
         return sqrt(x*x+y*y);
+    }
+    double operator ^(const P &b)const //叉积
+    {
+        return x*b.y - y*b.x;
+    }
+    double operator *(const P &b)const //点积
+    {
+        return x*b.x + y*b.y;
     }
 };
 
 int cmp(double x) { return x<-eps?-1:x>eps; }
 bool zero(double x) { return cmp(x)==0; }
 
-P operator-(P a, P  b)
-{
-    return P(a.x-b.x, a.y-b.y);
-}
+P operator-(P a, P  b){  return P(a.x-b.x, a.y-b.y);  }
 P operator*(P a, double k)
 {
     return P(a.x*k, a.y*k);
@@ -43,9 +45,7 @@ bool operator==(P a,P b)
     return zero(a.x-b.x) && zero(a.y-b.y);
 }
 bool operator!=(P a, P b)
-{
-    return !(a==b);
-}
+{ return !(a==b);  }
 double getAngle(P a)    ///点与X轴正方向的夹角
 {
     return atan2(a.y, a.x);
