@@ -42,7 +42,7 @@ void AC_build()
     }
 }
 int tmp[M];  
-int query(int buf[],int len)  
+int query(char buf[],int len)  
 {  
     for(int i=0;i<Size;i++) tmp[i]=end[i];  
     int res=0,u=root;  
