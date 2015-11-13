@@ -47,7 +47,7 @@ LL Pollard_rho(LL n,LL c) {
     }
 }
 LL Fac[maxn],tot;
-void factorization(LL n) { // 调用之前要让 tot = 0，调用后还要去重
+void factorization(LL n) { // 调用之前要让 tot = 0，调用后还要去重，n>1
     if(isP(n)) {
         Fac[tot++] = n;
         return;
