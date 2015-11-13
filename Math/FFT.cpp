@@ -1,7 +1,8 @@
 typedef complex<double> Complex;
 const double PI = acos(-1.0);
 const int MAXN = 100100 << 2;
-void FFT(Complex A[], int n, int oper)
+// oper = 1 FFT     oper = -1 逆FFT
+void FFT(Complex A[], int n, int oper) 
 {
     for (int i=1,j=0;i<n-1;i++) {
         for (int s=n;j^=s>>=1,~j&s;);
