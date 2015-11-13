@@ -1,6 +1,12 @@
 typedef complex<double> Complex;
 const double PI = acos(-1.0);
 const int MAXN = 100100 << 2;
+int f(int n) 
+{
+    int tmp = 1;
+    while (tmp < n) tmp <<= 1;
+    return tmp;
+}
 // oper = 1 FFT     oper = -1 逆FFT
 void FFT(Complex A[], int n, int oper) 
 {
