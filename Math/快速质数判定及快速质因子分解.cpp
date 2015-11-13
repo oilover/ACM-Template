@@ -57,3 +57,26 @@ void factorization(LL n) { // 调用之前要让 tot = 0，调用后还要去重
     factorization(p);
     factorization(n/p);
 }
+快速分解10^12以内的质因子：
+const int N = 1e6+7;
+int prime[N];
+bool p[N];
+vector<int> fj(int n)
+{
+    vector<int> vec;
+    for (int i=0;prime[i]*prime[i]<=n;i++)if(n%prime[i]==0) {
+        while (n % prime[i] == 0) n/=prime[i];
+        vec.push_back(prime[i]);
+    }
+    if (n > 1)  vec.push_back(n);
+    return vec;
+}
+int main()
+{
+    tot = 0;
+    memset(p,true,sizeof p);p[1]=false;
+    for (int i=2;i<N;i++)if(p[i]) {
+        prime[tot ++] = i;
+        for (int j=i+i;j<N;j+=i) p[j]=false;
+    }
+}
