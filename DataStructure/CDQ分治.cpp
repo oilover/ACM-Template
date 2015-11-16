@@ -35,9 +35,9 @@ void CDQ(int l, int r)
     if (l >= r) return ;
     int m = (l +  r) / 2, top1 = 0, top2 = 0, j = 0;
     CDQ(l ,m); CDQ(m+1, r);
-    for (int i=m+1;i<=r;i++) if (q[i].idx != 0)
+    for (int i=m+1;i<=r;i++) if (q[i].idx != 0)  //询问操作
         s1[top1++] = q[i];
-    for (int i=l;i<=m;i++) if (q[i].idx == 0)
+    for (int i=l;i<=m;i++) if (q[i].idx == 0) //修改操作
         s2[top2++] = q[i];
     sort(s1, s1 + top1);
     sort(s2, s2 + top2);
