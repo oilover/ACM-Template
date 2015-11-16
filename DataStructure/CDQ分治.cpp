@@ -5,7 +5,7 @@ typedef long long LL;
 const int MAXN = 400005;
 struct Node
 {
-    int x1, x2, y, f, idx;
+    int x1, x2, y, f, idx;  // idx = 0 表示修改，否则表示第几个询问
     Node() {}
     Node(int x1,int x2,int y,int f,int idx):
         x1(x1),x2(x2),y(y),f(f),idx(idx){}
