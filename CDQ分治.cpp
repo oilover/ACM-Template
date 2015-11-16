@@ -1,9 +1,3 @@
-/**
-摩尔瓦多的移动电话公司摩基亚（Mokia）设计出了一种新的用户定位系统。和其他的定位系统一样，它能够迅速回答任何形如“用户C的位置在哪？”的问题，精确到毫米。但其真正高科技之处在于，它能够回答形如“给定区域内有多少名用户？”的问题。
-在定位系统中，世界被认为是一个W*W的正方形区域，由1*1的方格组成。每个方格都有一个坐标(x,y)，1<=x,y<=W。坐标的编号从1开始。对于一个4*4的正方形，就有1<=x<=4,1<=y<=4（如图）：
-
-请帮助Mokia公司编写一个程序来计算在某个矩形区域内有多少名用户。
-*/
 #include <bits/stdc++.h>
 using namespace std;
 typedef long long LL;
@@ -67,12 +61,12 @@ void solve(int cas = 1)
     while (true) {
         scanf("%d", &op);
         if (op == 3) break;
-        if (op == 1) {
+        if (op == 1) {  //单点增加w
             scanf("%d%d%d", &x, &y, &w);
             q[++m] = Node(x , x, y, w, 0);
             a[++cnt] = x;
         }
-        else {
+        else {   //查询矩形的和
             scanf("%d%d%d%d", &x1, &y1, &x2, &y2);
             q[++m] = Node(x1, x2,     y2,  1, ++Query);
             q[++m] = Node(x1, x2, y1 - 1, -1, Query);
