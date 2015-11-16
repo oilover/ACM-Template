@@ -27,7 +27,7 @@ void LiSan()
 int Hash(int x) { return lower_bound(a+1, a+cnt+1, x) - a; }
 int low(int x) { return x & -x; }
 void add(int x, int v)
-{   for (int i=x;i<cnt;i+=low(i)) T[i]+=v;   }
+{   for (int i=x;i<MAXN;i+=low(i)) T[i]+=v;   }
 int sum(int x)
 {  int r = 0; for (int i=x;i>0;i-=low(i)) r += T[i]; return r; }
 void CDQ(int l, int r)
