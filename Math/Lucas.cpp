@@ -1,36 +1,36 @@
 typedef long long LL;
 ///Lucas(n, m, p)=c[n%p][m%p]*lucas(n/p, m/p, p);  组合数取模 p<10^5
-ll fac[1021100];
-ll mul(ll a, ll n, ll m)
+LL fac[1021100];
+LL mul(LL a, LL n, LL m)
 {
-    ll r = 0;
+    LL r = 0;
     for (; n>0; n>>=1,a=(a+a)%m) if(n&1) r = (r + a) % m;
     return r;
 }
-ll pmod(ll a, ll n, ll m)
+LL pmod(LL a, LL n, LL m)
 {
     a %= m;
-    ll r = 1;
+    LL r = 1;
     for (; n>0; n>>=1,a=a*a%m) if (n&1) r=mul(r, a, m);
     return r;
 }
-ll inv(ll a, ll m) { if(a==1) return 1;return pmod(a, m-2, m); }
-void get_fac(ll p)
+LL inv(LL a, LL m) { if(a==1) return 1;return pmod(a, m-2, m); }
+void get_fac(LL p)
 {
     fac[0]=1;
     for(int i=1;i<=p+10;i++)
         fac[i]=(fac[i-1]*i)%p;
 }
-ll C(ll n,ll m,ll mod)
+LL C(LL n,LL m,LL mod)
 {
     if (n < m) return 0;
-    ll Comb = mul(mul(fac[n], inv(fac[n-m], mod) , mod),
+    LL Comb = mul(mul(fac[n], inv(fac[n-m], mod) , mod),
                   inv(fac[m], mod) , mod) ;
     return Comb;
 }
-ll Lucas(ll n,ll m,ll mod)
+LL Lucas(LL n,LL m,LL mod)
 {
-    if(m==0) return 1;  ll p=mod;
+    if(m==0) return 1;  LL p=mod;
     return mul(C(n%p, m%p, mod) , Lucas(n/p,m/p,mod) , mod) % mod;
 }
 LL C(LL n, LL m, LL p) {  // 另一种计算组合数方法
