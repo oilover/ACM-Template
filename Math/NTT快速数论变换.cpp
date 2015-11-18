@@ -50,13 +50,6 @@ void NTT(LL A[], int n, int oper)
 LL A[MAXN], B[MAXN];
 int ans[MAXN];
 char s[MAXN];
-LL f(char s[])
-{
-    int len = strlen(s);
-    LL ret=  0;
-    for (int i=0;i<len;i++) ret = ret * 10 + s[i]-'0';
-    return ret;
-}
 int n;
 int main()
 {
