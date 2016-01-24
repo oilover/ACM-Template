@@ -1,14 +1,25 @@
-set tabstop=4
-set nu
-set cindent
-set shiftwidth=4
+set cindent autoindent number sts=4 sw=4 ts=4 et
+set backspace=indent,eol,start
+syntax on
 
-map <C-A> ggVG"+y  ///现场赛提交文件的话不需要
-map <F9> : call Run()<CR>
-func! Run()
-	exec "w"  
-	exec "!g++ % -o %<"  
-	exec "!./%<" 
+map <F6> : call CR()<CR>
+func! CR()
+    exec "w"
+    exec "!g++ -O2 -std=c++11 % -o %<"
+    exec "!./%<"
+endfunc
+	
+map <F8> : call Java()<CR>
+func! Java()
+    exec "w"
+    exec "!javac %"
+    exec "!java %<"
+endfunc 
+
+map <F9> : call Python()<CR>
+func! Python()
+    exec "w"
+    exec "!python %"
 endfunc
 
 map <F2> :call SetTitle()<CR>
