@@ -1,6 +1,5 @@
 //lati 为纬度 longi 为经度 R 为半径
-double Dist(double lati1,double longi1,double lati2,double longi2,double
-            R)
+double Dist(double lati1,double longi1,double lati2,double longi2,double R=6371)
 {
     double pi=acos(-1.0);
     lati1*=pi/180,longi1*=pi/180,lati2*=pi/180,longi2*=pi/180;
