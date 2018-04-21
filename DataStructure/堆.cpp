@@ -3,15 +3,14 @@ using namespace std;
 #define prt(k) cerr<<#k" = "<<k<<endl
 const int N = 2333;
 
-    int len;
-    int size;
+    int len; // array
+    int size;  //heap
     int A[N];
 
 #define lson (i<<1)
 #define rson (i<<1|1)
-void heapify(int i)
+void heapify(int i) // da gen dui
 {
-
     int id = i;
     if (lson<=size && A[lson]>A[id]) id = lson;
     if (rson<=size && A[rson]>A[id]) id = rson;
@@ -22,10 +21,21 @@ void heapify(int i)
 void build()
 {
     size = len;
-    for (int i=len/2;i>=1;i--) {
+    for (int i=size/2;i>=1;i--) {
         heapify( i);
     }
 }
+void jump(int v) {
+    if (v==1) return;
+    if (A[v/2] < A[v]) {
+        A[v/2] = A[v];
+        jump(v/2);
+    }
+}
+void insert(int x) {
+    A[++size] = x;
+    jump(size);
+    
 void heapsort()
 {
     build();
