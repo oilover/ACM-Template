@@ -9,20 +9,20 @@ const int N = 2333;
 
 #define lson (i<<1)
 #define rson (i<<1|1)
-void heapify(int i) // da gen dui
+void sink(int i) // da gen dui
 {
     int id = i;
     if (lson<=size && A[lson]>A[id]) id = lson;
     if (rson<=size && A[rson]>A[id]) id = rson;
     if (id==i) return;
     swap(A[i], A[id]);
-    heapify( id);
+    sink( id);
 }
 void build()
 {
     size = len;
     for (int i=size/2;i>=1;i--) {
-        heapify( i);
+        sink( i);
     }
 }
 void jump(int v) {
@@ -35,7 +35,7 @@ void jump(int v) {
 void insert(int x) {
     A[++size] = x;
     jump(size);
-    
+}
 void heapsort()
 {
     build();
