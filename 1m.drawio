@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2022-05-20T02:34:42.666Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/97.0.4692.99 Safari/537.36" etag="Q5-hCFQMeQJSFrwVHSv0" version="18.0.8" type="github">
+<mxfile host="app.diagrams.net" modified="2022-05-20T02:36:53.074Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/97.0.4692.99 Safari/537.36" etag="iPuWvjzcJ2oheUFvO6bi" version="18.0.8" type="github">
   <diagram id="BjncxYA5NqWjLkUP5t2P" name="Page-1">
     <mxGraphModel dx="1038" dy="547" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
@@ -10,11 +10,8 @@
         <mxCell id="5ZKgEueDKcrBrXA8dDzn-2" value="&lt;p class=&quot;MsoNormal&quot; style=&quot;font-size: 14px;&quot;&gt;patient_trajectory&lt;br style=&quot;font-size: 14px;&quot;&gt;&lt;/p&gt;" style="rounded=0;whiteSpace=wrap;html=1;fontSize=14;" vertex="1" parent="1">
           <mxGeometry x="130" y="200" width="140" height="30" as="geometry" />
         </mxCell>
-        <mxCell id="5ZKgEueDKcrBrXA8dDzn-13" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;fontSize=14;" edge="1" parent="1" source="5ZKgEueDKcrBrXA8dDzn-3" target="5ZKgEueDKcrBrXA8dDzn-12">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
         <mxCell id="5ZKgEueDKcrBrXA8dDzn-3" value="&lt;p class=&quot;MsoNormal&quot; style=&quot;font-size: 14px;&quot;&gt;patient_trajectory_complete&lt;/p&gt;" style="rounded=0;whiteSpace=wrap;html=1;fontSize=14;" vertex="1" parent="1">
-          <mxGeometry x="410" y="180" width="200" height="30" as="geometry" />
+          <mxGeometry x="410" y="190" width="200" height="30" as="geometry" />
         </mxCell>
         <mxCell id="5ZKgEueDKcrBrXA8dDzn-7" value="&lt;p class=&quot;MsoNormal&quot; style=&quot;font-size: 14px;&quot;&gt;patient_address&lt;/p&gt;" style="rounded=0;whiteSpace=wrap;html=1;fontSize=14;" vertex="1" parent="1">
           <mxGeometry x="440" y="280" width="140" height="30" as="geometry" />
@@ -55,10 +52,10 @@
             <mxPoint x="290" y="60" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="5ZKgEueDKcrBrXA8dDzn-19" value="" style="endArrow=classic;html=1;rounded=0;fontSize=14;entryX=0;entryY=0.75;entryDx=0;entryDy=0;" edge="1" parent="1" target="5ZKgEueDKcrBrXA8dDzn-3">
+        <mxCell id="5ZKgEueDKcrBrXA8dDzn-19" value="" style="endArrow=classic;html=1;rounded=0;fontSize=14;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="1" source="5ZKgEueDKcrBrXA8dDzn-2">
           <mxGeometry width="50" height="50" relative="1" as="geometry">
             <mxPoint x="270" y="210" as="sourcePoint" />
-            <mxPoint x="350" y="180" as="targetPoint" />
+            <mxPoint x="410" y="205" as="targetPoint" />
           </mxGeometry>
         </mxCell>
         <mxCell id="5ZKgEueDKcrBrXA8dDzn-20" value="&lt;p class=&quot;MsoNormal&quot;&gt;candidate_patient_collide&lt;br&gt;&lt;/p&gt;" style="rounded=0;whiteSpace=wrap;html=1;fontSize=14;" vertex="1" parent="1">
@@ -92,6 +89,12 @@
           <mxGeometry width="50" height="50" relative="1" as="geometry">
             <mxPoint x="350" y="400" as="sourcePoint" />
             <mxPoint x="400" y="350" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="5ZKgEueDKcrBrXA8dDzn-28" value="" style="endArrow=classic;html=1;rounded=0;fontSize=14;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="5ZKgEueDKcrBrXA8dDzn-3" target="5ZKgEueDKcrBrXA8dDzn-12">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="340" y="190" as="sourcePoint" />
+            <mxPoint x="390" y="140" as="targetPoint" />
           </mxGeometry>
         </mxCell>
       </root>
